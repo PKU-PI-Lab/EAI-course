@@ -6,3 +6,14 @@
 
 # 原始大图不入库（网页用压缩版 instructor-pangzhibo.jpg）
 images/庞智博.png
+
+# 视频原片不入库（网页用 assets/video/ 下的 720p 压缩版，见 tools/compress_videos.sh）
+Videos.zip
+videos/
+
+# 现场照原图不入库（网页用压缩版 images/scene-classroom.jpg）
+images/往期课程现场.png
+
+# Word 临时文件 / 本地开发配置
+~$*
+.claude/

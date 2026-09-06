@@ -6,14 +6,18 @@
   <title>机器人具身智能系统开发实践基础 · 00334790 · 2026 秋</title>
   <meta name="description" content="北京大学工学院本科生实践课程：任务仿真 — 数据工程 — 模型训练 — 推理部署。Practical Foundations for Robotic Embodied Intelligence System Development." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="showcase.css" />
 </head>
 <body>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- ══════════ TOP BAR ══════════ -->
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <span class="topbar-brand">PKU · COE <i>/</i> EAI-COURSE</span>
+      <span class="topbar-brand"><img src="images/logo-pi-lab.png" alt="PKU PI-Lab" class="brand-mark" />PKU · COE <i>/</i> EAI-COURSE</span>
       <nav class="topbar-nav">
+        <a href="#showcase">现场</a>
         <a href="#info">课程</a>
         <a href="#instructor">教师</a>
         <a href="#guests">嘉宾</a>
@@ -32,12 +36,13 @@
       </div>
       <h1 class="hero-title">机器人具身智能<br />系统开发实践基础</h1>
       <p class="hero-sub">Practical Foundations for Robotic Embodied Intelligence System Development</p>
-      <div class="hero-pipeline">
-        <span>任务仿真 SIMULATION</span><em>→</em>
-        <span>数据工程 DATA</span><em>→</em>
-        <span>模型训练 TRAINING</span><em>→</em>
-        <span>推理部署 DEPLOYMENT</span>
+      <div class="hero-pipeline" id="pipeline">
+        <span data-stage="0">任务仿真 SIMULATION</span><em>→</em>
+        <span data-stage="1">数据工程 DATA</span><em>→</em>
+        <span data-stage="2">模型训练 TRAINING</span><em>→</em>
+        <span data-stage="3">推理部署 DEPLOYMENT</span>
       </div>
+      <div class="pipeline-detail" id="pipeline-detail" aria-live="polite"></div>
       <div class="hero-meta">
         <div><b>3</b><span>学分 CREDITS</span></div>
         <div><b>85</b><span>学时 HOURS</span></div>
@@ -48,11 +53,89 @@
     </div>
   </section>
 
-  <!-- ══════════ 01 课程基本信息 ══════════ -->
-  <section id="info" class="section">
+  <!-- ══════════ 01 课程现场 ══════════ -->
+  <section id="showcase" class="section">
     <div class="wrap">
       <div class="section-head">
         <span class="section-no">01</span>
+        <h2>课程现场 <span class="en">FROM THE LAB</span></h2>
+      </div>
+
+      <p class="sc-lead reveal">课程的完整链路是「任务仿真 → 数据工程 → 模型训练 → 推理部署」，最后交的是真机上跑起来的结果。</p>
+
+      <!-- 演示播放器 -->
+      <div class="reveal">
+        <div class="sc-frame" id="sc-frame">
+          <div id="sc-stage" class="sc-stage" role="group" aria-label="真机任务演示，可用左右方向键切换">
+            <video class="v-a" muted loop playsinline preload="none"></video>
+            <video class="v-b" muted loop playsinline preload="none"></video>
+            <div class="sc-stage-spin" aria-hidden="true"></div>
+            <button class="sc-nav prev" type="button" aria-label="上一个任务">◀</button>
+            <button class="sc-nav next" type="button" aria-label="下一个任务">▶</button>
+            <button class="sc-play" id="sc-play" type="button" aria-label="播放或暂停">❙❙</button>
+            <div class="sc-progress" id="sc-progress" aria-hidden="true"><i></i></div>
+          </div>
+          <div class="sc-caption">
+            <h3 id="sc-title">—</h3>
+            <span id="sc-tags"></span>
+            <span class="sc-spec" id="sc-spec"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 任务矩阵 -->
+      <div class="sc-matrix-block reveal">
+        <div class="sc-matrix-head">
+          <h4>真机任务示例 <span class="en">REAL-ROBOT TASKS</span></h4>
+          <p id="sc-matrix-count"></p>
+        </div>
+        <div class="sc-matrix-scroll">
+          <div class="sc-matrix" id="sc-matrix"></div>
+        </div>
+      </div>
+
+      <!-- 泛化对比 -->
+      <div class="sc-compare-block reveal">
+        <div class="sc-compare-intro">
+          <h4>换个场景，策略还成立吗？</h4>
+                  </div>
+        <div class="sc-compare" id="sc-compare" style="--x:50%">
+          <video class="cmp-a" muted loop playsinline preload="none" poster="assets/posters/Circular-Ball-Succeed.jpg"></video>
+          <div class="sc-cmp-top">
+            <video class="cmp-b" muted loop playsinline preload="none" poster="assets/posters/Circular-Ball-YellowBG-Succeed.jpg"></video>
+          </div>
+          <span class="sc-cmp-label l">训练场景 · 黑色桌面</span>
+          <span class="sc-cmp-label r">未见过 · 黄色桌面</span>
+          <div class="sc-cmp-divider"><span class="sc-cmp-grip">◀▶</span></div>
+        </div>
+        <p class="sc-compare-note">SAME POLICY · ZERO RETRAINING — 同一策略，未重新训练</p>
+      </div>
+
+      <!-- 往期现场 -->
+      <div class="scene-block reveal">
+        <div class="scene-media">
+          <img src="images/scene-classroom.jpg" alt="往期课程现场：学生围着双臂移动机器人调试" loading="lazy" decoding="async" />
+        </div>
+        <div class="scene-cap">
+          <b>往期课程现场</b>
+          <span>学生调试双臂移动机器人平台</span>
+          <span>PREVIOUS COHORT · ON SITE</span>
+        </div>
+        <div class="scene-stats">
+          <div><b data-count="15">0</b><span>周次 SESSIONS</span></div>
+          <div><b data-count="68">0</b><span>实验学时 LAB HOURS</span></div>
+          <div><b data-count="12" data-suffix="+">0</b><span>真机任务 TASKS</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ 02 课程基本信息 ══════════ -->
+  <section id="info" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-no">02</span>
         <h2>课程基本信息 <span class="en">COURSE INFO</span></h2>
       </div>
 
@@ -70,6 +153,7 @@
           <div><dt>授课语言 LANGUAGE</dt><dd>中文</dd></div>
           <div><dt>成绩记载 GRADING</dt><dd>百分制</dd></div>
           <div><dt>总学时 HOURS</dt><dd>85 = 讲授 17 + 实验实践 68</dd></div>
+          <div><dt>上课地点 VENUE</dt><dd>讲授 三教 501<br />实验 新奥工学大楼 B111</dd></div>
           <div><dt>先修课程 PREREQ.</dt><dd>无</dd></div>
           <div><dt>考核方式 ASSESSMENT</dt><dd>过程性考核 + 项目成果，不设笔试</dd></div>
         </dl>
@@ -82,24 +166,42 @@
           <div class="g2" style="width:30%"><b>期中 30%</b><span>阶段汇报 + Demo</span></div>
           <div class="g3" style="width:50%"><b>期末 50%</b><span>综合项目 · 真实任务</span></div>
         </div>
+        <div class="grading-detail" id="grading-detail" aria-live="polite"></div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ 02 授课教师 ══════════ -->
+  <!-- ══════════ 03 授课教师 ══════════ -->
   <section id="instructor" class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-no">02</span>
+        <span class="section-no">03</span>
         <h2>授课教师 <span class="en">INSTRUCTOR</span></h2>
       </div>
 
       <div class="person">
           <div class="person-photo"><img src="images/instructor-pangzhibo.jpg" alt="庞智博" /></div>
           <div class="person-info">
-            <h3>庞智博 <span class="en">PANG ZHIBO</span></h3>
-          <p class="person-title">教授 · 北京大学工学院 · PI Lab</p>
-          <p class="person-bio">个人简介待补充。<!-- 可在此填写研究方向、代表成果等 --></p>
+          <h3>庞智博 <span class="en">PANG ZHIBO</span></h3>
+          <p class="person-title">北京大学长聘教授 · 先进制造与机器人学院 · PI Lab 物理智能实验室</p>
+          <p class="person-bio">一位「从产业里走回讲台」的老师。2002 年本科毕业于浙江大学后先进入产业界，在杭州国芯微电子从芯片设计工程师做到部门经理，带领 80 余人的研发团队，是当时国内少数能独立完成大规模系统级芯片（SoC）设计的团队之一。此后赴欧洲深造，取得芬兰图尔库大学 MBA 与瑞典皇家理工学院（KTH）电子与计算机系统专业博士学位。</p>
+
+          <div class="bio-more" id="bio-more">
+            <p class="person-bio">2013 年加入 ABB 瑞典研究院，一路做到资深主任科学家（Senior Principal Scientist），2021 年起兼任 KTH 双聘教授，2025 年全职回国加盟北京大学。</p>
+            <p class="person-bio">主持的欧盟、瑞典及 ABB 集团科研项目累计经费超过 1000 万欧元，成果落地于 ABB 移动 YuMi 机器人、日立能源超高压电力电子控制系统等真实产品；拥有 25 项美欧日授权发明专利，发表国际期刊论文 200 余篇，三度获 ABB 瑞典研究院「年度发明人奖」，并担任 IEEE 工业电子学会执委及 IEEE TII 等多本国际期刊副主编。</p>
+          </div>
+          <button class="bio-toggle" type="button" id="bio-toggle" aria-controls="bio-more" aria-expanded="false">展开完整履历 +</button>
+
+          <div class="research">
+            <span class="research-label">研究方向 RESEARCH INTERESTS</span>
+            <div class="research-grid">
+              <div><span class="research-no">01</span>机器人灵巧手触觉感知与精细操控</div>
+              <div><span class="research-no">02</span>多模态具身智能基础模型与分层推理</div>
+              <div><span class="research-no">03</span>可泛化物理信息神经网络（PINN）基础模型</div>
+              <div><span class="research-no">04</span>网络化具身智能系统的信息与物理安全</div>
+            </div>
+          </div>
+
           <p class="person-link">
             实验室主页 LAB HOMEPAGE →
             <a href="https://pku-pi-lab.github.io/" target="_blank" rel="noopener">pku-pi-lab.github.io</a>
@@ -109,11 +211,11 @@
     </div>
   </section>
 
-  <!-- ══════════ 03 业界嘉宾 ══════════ -->
+  <!-- ══════════ 04 业界嘉宾 ══════════ -->
   <section id="guests" class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-no">03</span>
+        <span class="section-no">04</span>
         <h2>业界嘉宾报告 <span class="en">GUEST LECTURES</span></h2>
       </div>
 
@@ -122,21 +224,59 @@
           <div class="person-photo"><img src="images/guest-xiaowei-chi.jpg" alt="池晓威 Xiaowei Chi" /></div>
           <div class="person-info">
             <h3>池晓威 <span class="en">XIAOWEI CHI · GUEST SPEAKER 01</span></h3>
-            <p class="person-title">香港科技大学 博士研究生 · Ph.D. Candidate, HKUST</p>
+            <p class="person-title">MUKA 莫刻机器人 创始人 · 香港科技大学 博士研究生<br />Founder, MUKA Robotics · Ph.D. Candidate, HKUST</p>
             <p class="person-bio">香港科技大学新兴跨学科领域学部博士生，师从郭毅可教授与韩斯睿教授，并与北京大学仉尚航教授紧密合作。研究方向为机器人多模态生成模型与世界模型，致力于推动机器人在真实环境中的通用智能，已在 CVPR、ICML、AAAI、ICRA 等顶级会议与期刊发表多篇论文，曾就职于腾讯 Robotics X 实验室。</p>
             <p class="person-bio en-bio">Xiaowei Chi is a Ph.D. candidate at HKUST, supervised by Prof. Yike Guo and Prof. Sirui Han, and working closely with Prof. Shanghang Zhang (PKU). His research focuses on multimodal generative models and world models for robotics, with publications at CVPR, ICML, AAAI, and ICRA. He previously worked at Tencent Robotics X Lab.</p>
             <p class="person-link">
               个人主页 HOMEPAGE →
               <a href="https://litwellchi.github.io/" target="_blank" rel="noopener">litwellchi.github.io</a>
             </p>
+            <ul class="newslinks">
+              <li><a href="https://mp.weixin.qq.com/s/bLZKTwO550GVFsOszIfmnw" target="_blank" rel="noopener">MUKA｜莫刻机器人</a></li>
+              <li><a href="https://mp.weixin.qq.com/s/rBpdelQ7BENokDlYPozHpA" target="_blank" rel="noopener">神秘黑马 · 莫刻机器人冲榜 WorldArena，仅 32 张真武 810E 封神</a></li>
+            </ul>
           </div>
         </div>
         <div class="person guest">
-          <div class="person-photo"><span>PHOTO<br />待补充</span></div>
+          <div class="person-logo">
+            <img src="images/logo-lightwheel.png" alt="光轮智能 Lightwheel" />
+          </div>
           <div class="person-info">
-            <h3>嘉宾 02 <span class="en">GUEST SPEAKER</span></h3>
-            <p class="person-title">单位 / 职称待补充</p>
-            <p class="person-bio">嘉宾简介待补充。报告主题待定，暂定于学期中段进行，具体时间见课程安排。</p>
+            <h3>光轮智能 <span class="en">LIGHTWHEEL · GUEST SPEAKER 02</span></h3>
+            <p class="person-title">具身智能数据与仿真评测基础设施 · Physical AI Infrastructure</p>
+            <p class="person-bio">机器人训练最缺的往往不是模型，而是数据。光轮智能成立于 2023 年，做的正是这一层 —— 依托全栈自研的仿真平台，产出物理真实、可泛化的合成数据与评测能力：SimReady 仿真资产、第一人称人类数据、工业级仿真评测，再把部署反馈接回来，形成 Real2Sim2Real 的闭环。</p>
+            <p class="person-bio">在具身智能这条链路上，光轮站的是「数据基础设施」的位置：不造机器人本体，也不做终端应用，而是给几乎所有做机器人的团队供数据。公开资料显示，其合作方覆盖 NVIDIA、Google DeepMind、字节跳动等模型与算力方，Figure AI、1X、智元机器人等本体公司，以及丰田、博世、比亚迪、吉利等行业客户 —— 这个位置也是学生理解「具身智能为什么卡在数据上」最直接的样本。</p>
+
+            <div class="collab">
+              <span class="collab-label">与 NVIDIA 的合作 COLLABORATION WITH NVIDIA</span>
+              <div class="collab-grid">
+                <div>
+                  <span class="collab-no">01</span>
+                  <b>GR00T-Dreams 合成数据</b>
+                  <p>把自研仿真环境与 NVIDIA GR00T-Dreams 结合，生成厨房、仓库、产线等场景的合成数据，用于微调 GR00T N1.5 视觉-语言-动作（VLA）基础模型。</p>
+                </div>
+                <div>
+                  <span class="collab-no">02</span>
+                  <b>Newton 开源物理引擎</b>
+                  <p>与 NVIDIA、Google DeepMind、Disney Research 共同参与 GPU 加速的开源物理引擎 Newton，负责高质量仿真资产：扩展 OpenUSD、地形与沙土／积雪等颗粒材质、支持 MPM 可形变地形求解。</p>
+                </div>
+                <div>
+                  <span class="collab-no">03</span>
+                  <b>LW-BenchHub 评测框架</b>
+                  <p>与 NVIDIA 联合发布的开源仿真评测框架，用于衡量具身智能策略的能力边界。</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="person-link">
+              公司官网 HOMEPAGE →
+              <a href="https://lightwheel.ai/" target="_blank" rel="noopener">lightwheel.ai</a>
+            </p>
+            <ul class="newslinks">
+              <li><a href="https://blogs.nvidia.cn/blog/gt00t-dreams-lightwheel/" target="_blank" rel="noopener">NVIDIA 博客：GR00T-Dreams 助力光轮智能革新合成数据</a></li>
+              <li><a href="https://www.nvidia.com/en-us/case-studies/lightwheel/" target="_blank" rel="noopener">NVIDIA 案例：Lightwheel Accelerates Embodied AI With NVIDIA Foundation Models</a></li>
+              <li><a href="https://lightwheel.ai/media/lightwheel-newton" target="_blank" rel="noopener">Lightwheel × Newton：开源物理引擎的高质量仿真资产</a></li>
+            </ul>
           </div>
         </div>
         <div class="person guest">
@@ -151,11 +291,11 @@
     </div>
   </section>
 
-  <!-- ══════════ 04 面向学生 ══════════ -->
+  <!-- ══════════ 05 面向学生 ══════════ -->
   <section id="audience" class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-no">04</span>
+        <span class="section-no">05</span>
         <h2>面向的学生 <span class="en">WHO SHOULD ENROLL</span></h2>
       </div>
       <div class="audience">
@@ -165,27 +305,29 @@
       <div class="prereq">
         <span class="prereq-label">知识基础 PREREQUISITE KNOWLEDGE</span>
         <div class="prereq-grid">
-          <div class="prereq-item"><span class="prereq-no">A</span><b>Linux 系统操作</b><span class="en">Familiar with Linux</span></div>
-          <div class="prereq-item"><span class="prereq-no">B</span><b>Python 编程</b><span class="en">Proficient in Python</span></div>
-          <div class="prereq-item"><span class="prereq-no">C</span><b>ROS 编程基础</b><span class="en">Basics of ROS</span></div>
-          <div class="prereq-item"><span class="prereq-no">D</span><b>至少一种 CAD 软件</b><span class="en">At least one CAD tool</span></div>
+          <div class="prereq-item"><span class="prereq-no">A</span><b>Linux 系统操作</b><span class="en">Familiar with Linux</span><span class="prereq-more">能装环境、看日志、ssh 上远程机器即可。</span></div>
+          <div class="prereq-item"><span class="prereq-no">B</span><b>Python 编程</b><span class="en">Proficient in Python</span><span class="prereq-more">能独立写几百行脚本，会用虚拟环境与 NumPy。</span></div>
+          <div class="prereq-item"><span class="prereq-no">C</span><b>ROS 编程基础</b><span class="en">Basics of ROS</span><span class="prereq-more">知道节点／话题／服务，跑通过 publisher-subscriber。ROS 1、2 皆可。</span></div>
+          <div class="prereq-item"><span class="prereq-no">D</span><b>至少一种 CAD 软件</b><span class="en">At least one CAD tool</span><span class="prereq-more">能建简单零件并导出模型用于仿真场景。SolidWorks / Fusion 360 / FreeCAD 任选。</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ 05 课程安排 ══════════ -->
+  <!-- ══════════ 06 课程安排 ══════════ -->
   <section id="schedule" class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-no">05</span>
+        <span class="section-no">06</span>
         <h2>课程安排 <span class="en">SCHEDULE · FALL 2026</span></h2>
       </div>
 
       <p class="schedule-note">
-        每周二 15:00 – 18:00 ｜ 2026.09.08 – 2026.12.22 ｜ 共 15 次课（10.06 国庆假期停课）｜ 地点待定 TBA<br />
+        每周二 15:00 – 18:00 ｜ 2026.09.08 – 2026.12.22 ｜ 共 15 次课（10.06 国庆假期停课）<br />讲授课 三教 501（含第一次课）｜ 实验课 新奥工学大楼 B111<br />
         <em>以下为暂定安排（占位），嘉宾报告与各单元顺序可能调整，以课程群通知为准。</em>
       </p>
+
+      <div class="sched-filter" id="sched-filter" role="group" aria-label="按课次类型筛选"></div>
 
       <div id="calendar" class="calendar"></div>
 
@@ -203,10 +345,12 @@
     <div class="wrap footer-inner">
       <span>北京大学工学院 · 00334790 · 2026 秋</span>
       <span>EAI-COURSE — SIMULATION / DATA / TRAINING / DEPLOYMENT</span>
-      <a href="https://pku-pi-lab.github.io/" target="_blank" rel="noopener">PKU PI LAB ↗</a>
+      <a href="https://pku-pi-lab.github.io/" target="_blank" rel="noopener" class="footer-lab"><img src="images/logo-pi-lab.png" alt="" />PKU PI LAB ↗</a>
     </div>
   </footer>
 
   <script src="main.js"></script>
+  <script src="showcase.js"></script>
+  <script src="interactions.js"></script>
 </body>
 </html>

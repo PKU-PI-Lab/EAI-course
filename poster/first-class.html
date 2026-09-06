@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>首课预告 · 机器人具身智能系统开发实践基础</title>
+<style>
+  /* A4 竖版单页海报 · 沿用课程主页的「工业极简」令牌 */
+  @page { size: A4 portrait; margin: 0; }
+
+  :root {
+    --paper: #f4f3ef;
+    --ink: #16150f;
+    --ink-soft: #5c5a52;
+    --line: #16150f;
+    --line-soft: #cfccc0;
+    --accent: #ff3d00;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, "Courier New", monospace;
+    --sans: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { width: 210mm; height: 297mm; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    overflow: hidden;
+  }
+
+  .sheet {
+    width: 210mm; height: 297mm;
+    padding: 11mm 14mm 9mm;
+    display: flex; flex-direction: column;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 14mm 14mm;
+    background-position: center;
+  }
+
+  /* ── 页眉 ── */
+  .head {
+    display: flex; align-items: center; gap: 3.5mm;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2.5mm;
+  }
+  .head img { width: 10mm; height: 10mm; display: block; }
+  .head-org b { display: block; font-size: 9pt; }
+  .head-org span {
+    display: block; font-family: var(--mono);
+    font-size: 6pt; letter-spacing: .12em; color: var(--ink-soft); margin-top: .5mm;
+  }
+  .head-no {
+    margin-left: auto; text-align: right;
+    font-family: var(--mono); font-size: 6.5pt; letter-spacing: .12em;
+    color: var(--ink-soft); line-height: 1.7;
+  }
+
+  /* ── 标题 ── */
+  .eyebrow {
+    margin-top: 5mm; align-self: flex-start;
+    font-family: var(--mono); font-size: 7.5pt; letter-spacing: .18em;
+    color: #fff; background: var(--accent);
+    padding: 1.2mm 2.8mm;
+  }
+  h1 {
+    margin-top: 3.5mm;
+    font-size: 24pt; font-weight: 800; line-height: 1.14; letter-spacing: .01em;
+  }
+  .sub {
+    margin-top: 2.5mm;
+    font-family: var(--mono); font-size: 6.8pt; letter-spacing: .04em;
+    color: var(--ink-soft); line-height: 1.7;
+  }
+  .sub b { color: var(--ink); font-weight: 400; }
+  .sub i { font-style: normal; color: var(--accent); }
+
+  /* ── 时间地点 ── */
+  .when {
+    margin-top: 4.5mm;
+    display: grid; grid-template-columns: 1.3fr 1fr;
+    border: 1.6pt solid var(--ink);
+  }
+  .when > div { padding: 3.6mm 5mm; }
+  .when > div:first-child { border-right: 1.6pt solid var(--ink); }
+  .when .k {
+    font-family: var(--mono); font-size: 6.5pt; letter-spacing: .16em;
+    color: var(--accent); margin-bottom: 1.6mm;
+  }
+  .when .big {
+    font-family: var(--mono); font-size: 21pt; font-weight: 700;
+    line-height: 1.08; letter-spacing: -.01em;
+  }
+  .when .venue { font-size: 19pt; font-weight: 800; line-height: 1.1; }
+  .when .small {
+    margin-top: 1.4mm; font-size: 8.5pt; font-weight: 600; color: var(--ink-soft);
+  }
+
+  /* ── 两位讲者：主视觉，各占一半 ── */
+  .speakers {
+    margin-top: 4.5mm;
+    flex: 1;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4mm;
+    min-height: 0;
+  }
+  .sp {
+    border: 1.2pt solid var(--ink);
+    display: flex; flex-direction: column;
+    min-height: 0; overflow: hidden;
+  }
+  .sp-photo { flex: 1; min-height: 0; overflow: hidden; border-bottom: 1.2pt solid var(--ink); }
+  .sp-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 22%;
+    display: block;
+  }
+  .sp-body { padding: 3.4mm 4mm 4mm; }
+  .sp-slot {
+    font-family: var(--mono); font-size: 11pt; font-weight: 700;
+    color: var(--accent); letter-spacing: -.01em;
+  }
+  .sp-name {
+    margin-top: 1.6mm;
+    font-size: 20pt; font-weight: 800; letter-spacing: .01em; line-height: 1.1;
+  }
+  .sp-role {
+    margin-top: 1.8mm;
+    font-family: var(--mono); font-size: 6.4pt; letter-spacing: .05em;
+    color: var(--ink-soft); line-height: 1.6;
+  }
+  .sp-topic {
+    margin-top: 2.6mm; padding-top: 2.4mm;
+    border-top: 1px solid var(--line-soft);
+    font-size: 11.5pt; font-weight: 700;
+  }
+  .sp-topic em {
+    font-style: normal; display: block; margin-top: .8mm;
+    font-family: var(--mono); font-size: 6pt; letter-spacing: .1em;
+    color: var(--ink-soft); font-weight: 400;
+  }
+
+  /* ── 页脚：扫码 ── */
+  .foot {
+    margin-top: 4.5mm;
+    display: grid; grid-template-columns: 1fr 37mm; gap: 6mm; align-items: end;
+    border-top: 1px solid var(--line); padding-top: 3.6mm;
+  }
+  .foot-meta dl { display: grid; grid-template-columns: 22mm 1fr; row-gap: 1.5mm; }
+  .foot-meta dt {
+    font-family: var(--mono); font-size: 6pt; letter-spacing: .12em;
+    color: var(--ink-soft); padding-top: .4mm;
+  }
+  .foot-meta dd { font-size: 8pt; font-weight: 600; }
+  .foot-cta { margin-top: 3mm; font-size: 9.5pt; font-weight: 800; }
+  .foot-cta em {
+    font-style: normal; display: block; margin-top: .8mm;
+    font-family: var(--mono); font-size: 7pt; font-weight: 400;
+    letter-spacing: .04em; color: var(--accent);
+  }
+  .qr { text-align: center; }
+  .qr img {
+    width: 37mm; height: 37mm; display: block;
+    border: 1px solid var(--line); padding: 1.2mm; background: #fff;
+  }
+  .qr span {
+    display: block; margin-top: 1.4mm;
+    font-family: var(--mono); font-size: 5.6pt; letter-spacing: .12em; color: var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="head">
+    <img src="../images/logo-pi-lab.png" alt="PKU PI-Lab" />
+    <div class="head-org">
+      <b>北京大学 工学院 · 先进制造与机器人学院</b>
+      <span>PI LAB · 物理智能实验室</span>
+    </div>
+    <div class="head-no">
+      COURSE NO. 00334790<br />
+      3 CREDITS / FALL 2026
+    </div>
+  </div>
+
+  <span class="eyebrow">首课预告 FIRST CLASS</span>
+
+  <h1>机器人具身智能<br />系统开发实践基础</h1>
+  <p class="sub">
+    Practical Foundations for Robotic Embodied Intelligence System Development<br />
+    <b>任务仿真</b> <i>→</i> <b>数据工程</b> <i>→</i> <b>模型训练</b> <i>→</i> <b>推理部署</b>
+  </p>
+
+  <div class="when">
+    <div>
+      <div class="k">时间 WHEN</div>
+      <div class="big">09.08 <span style="font-size:13pt">周二</span></div>
+      <div class="big" style="font-size:16pt; margin-top:1.2mm">15:10 – 17:00</div>
+      <div class="small">2026 年 9 月 8 日</div>
+    </div>
+    <div>
+      <div class="k">地点 WHERE</div>
+      <div class="venue">三教 501</div>
+      <div class="small">实验课在新奥工学大楼 B111</div>
+    </div>
+  </div>
+
+  <div class="speakers">
+    <div class="sp">
+      <div class="sp-photo"><img src="../images/instructor-pangzhibo.jpg" alt="庞智博" /></div>
+      <div class="sp-body">
+        <div class="sp-slot">15:10 – 16:00</div>
+        <div class="sp-name">庞智博</div>
+        <div class="sp-role">北京大学长聘教授<br />先进制造与机器人学院 · PI LAB</div>
+        <div class="sp-topic">课程介绍<em>COURSE INTRODUCTION</em></div>
+      </div>
+    </div>
+
+    <div class="sp">
+      <div class="sp-photo"><img src="../images/guest-xiaowei-chi.jpg" alt="池晓威" /></div>
+      <div class="sp-body">
+        <div class="sp-slot">16:10 – 17:00</div>
+        <div class="sp-name">池晓威</div>
+        <div class="sp-role">MUKA 莫刻机器人 创始人<br />香港科技大学 博士研究生</div>
+        <div class="sp-topic">行业经验分享<em>GUEST TALK · FROM THE INDUSTRY</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-meta">
+      <dl>
+        <dt>学期 TERM</dt><dd>2026.09.08 – 12.22 ｜ 每周二 15:00 – 18:00 ｜ 共 15 次课</dd>
+        <dt>面向 FOR</dt><dd>全校本科生，无先修课程要求</dd>
+        <dt>考核 GRADING</dt><dd>过程性考核 + 项目成果，不设笔试</dd>
+      </dl>
+      <div class="foot-cta">
+        扫码查看课程官网
+        <em>pku-pi-lab.github.io/EAI-course</em>
+      </div>
+    </div>
+    <div class="qr">
+      <img src="qr-course.png" alt="课程官网二维码" />
+      <span>SCAN ME</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
