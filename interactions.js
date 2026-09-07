@@ -195,6 +195,67 @@ function initCounters() {
   }), 3500);
 }
 
+/* ══════ 公开答疑 + 匿名访客统计：服务配置后自动接入 ══════ */
+function initCommunity() {
+  const qaRoot = document.getElementById("qa-comment-root");
+  const qaStatus = document.getElementById("qa-status");
+  const visitRoot = document.getElementById("visit-stats");
+  const visitState = document.getElementById("visit-state");
+
+  /*
+   * 启用公开答疑时，在本脚本加载前定义 window.COURSE_GISCUS_CONFIG：
+   * { repo, repoId, category, categoryId, mapping, term?, theme?, lang? }
+   * 请原样采用 giscus.app 在启用 GitHub Discussions 后生成的配置；这些 ID 不是密钥。
+   */
+  const giscus = window.COURSE_GISCUS_CONFIG;
+  if (qaRoot && giscus?.repo && giscus?.repoId && giscus?.category && giscus?.categoryId) {
+    qaRoot.replaceChildren();
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.dataset.repo = giscus.repo;
+    script.dataset.repoId = giscus.repoId;
+    script.dataset.category = giscus.category;
+    script.dataset.categoryId = giscus.categoryId;
+    script.dataset.mapping = giscus.mapping || "pathname";
+    if (giscus.term) script.dataset.term = giscus.term;
+    script.dataset.strict = "0";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = giscus.theme || "https://pku-pi-lab.github.io/EAI-course/giscus-theme.css";
+    script.dataset.lang = giscus.lang || "zh-CN";
+    qaRoot.appendChild(script);
+    if (qaStatus) {
+      qaStatus.textContent = "已开放";
+      qaStatus.classList.add("is-live");
+    }
+  }
+
+  /*
+   * 接入分析服务后可定义 window.COURSE_VISITOR_STATS：
+   * { total, unique, updated }。仅展示匿名汇总，不应填入个人身份信息。
+   */
+  const visits = window.COURSE_VISITOR_STATS;
+  if (visitRoot && visits) {
+    const values = {
+      total: visits.total,
+      unique: visits.unique,
+      updated: visits.updated,
+    };
+    Object.entries(values).forEach(([key, value]) => {
+      if (value === undefined || value === null) return;
+      const field = visitRoot.querySelector(`[data-visit-${key}]`);
+      if (field) field.textContent = String(value);
+    });
+    if (visitState) {
+      visitState.innerHTML = "<i></i>匿名统计已更新";
+      visitState.classList.add("is-live");
+    }
+  }
+}
+
 initPipeline();
 initGrading();
 initPrereq();
@@ -202,3 +263,4 @@ initBio();
 initReveal();
 initScrollUI();
 initCounters();
+initCommunity();

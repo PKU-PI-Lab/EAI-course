@@ -1,0 +1,47 @@
+/* EAI-COURSE · Giscus custom theme
+   Loaded inside the Giscus iframe after public Q&A is enabled. */
+:host, html {
+  --color-prettylights-syntax-comment: #5c5a52;
+  --color-prettylights-syntax-constant: #ff3d00;
+  --color-prettylights-syntax-entity: #16150f;
+  --color-prettylights-syntax-keyword: #ff3d00;
+  --color-prettylights-syntax-string: #5c5a52;
+
+  --color-btn-text: #16150f;
+  --color-btn-bg: #f4f3ef;
+  --color-btn-border: #16150f;
+  --color-btn-hover-bg: #efeee9;
+  --color-btn-hover-border: #ff3d00;
+  --color-btn-active-bg: #e7e5de;
+  --color-btn-primary-text: #f4f3ef;
+  --color-btn-primary-bg: #16150f;
+  --color-btn-primary-border: #16150f;
+  --color-btn-primary-hover-bg: #ff3d00;
+  --color-btn-primary-hover-border: #ff3d00;
+  --color-btn-primary-selected-bg: #16150f;
+
+  --color-fg-default: #16150f;
+  --color-fg-muted: #5c5a52;
+  --color-fg-subtle: #77746b;
+  --color-canvas-default: #f4f3ef;
+  --color-canvas-overlay: #f4f3ef;
+  --color-canvas-inset: #efeee9;
+  --color-canvas-subtle: #efeee9;
+  --color-border-default: #16150f;
+  --color-border-muted: #cfccc0;
+  --color-neutral-muted: rgba(22, 21, 15, .08);
+  --color-accent-fg: #ff3d00;
+  --color-accent-emphasis: #ff3d00;
+  --color-accent-muted: rgba(255, 61, 0, .26);
+  --color-accent-subtle: rgba(255, 61, 0, .08);
+  --color-success-fg: #427a31;
+  --color-attention-fg: #a95b00;
+  --color-danger-fg: #c42b00;
+
+  --font-family-sans: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-family-monospace: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+}
+
+main {
+  border-radius: 0;
+}

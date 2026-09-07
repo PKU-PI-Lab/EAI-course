@@ -23,6 +23,7 @@
         <a href="#guests">嘉宾</a>
         <a href="#audience">对象</a>
         <a href="#schedule">安排</a>
+        <a href="#qa">答疑</a>
       </nav>
     </div>
   </header>
@@ -337,6 +338,66 @@
       </div>
 
       <div id="session-list" class="session-list"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 07 课程答疑 ══════════ -->
+  <section id="qa" class="section qa-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-no">07</span>
+        <h2>课程答疑 <span class="en">PUBLIC Q&amp;A</span></h2>
+      </div>
+
+      <div class="qa-intro">
+        <p>课程相关的问题、补充和答复将在这里向所有人公开。答疑功能启用后，可先查阅已有讨论；若仍有疑问，登录后即可发起提问，教师会在同一讨论中回复。</p>
+        <div class="qa-rules" aria-label="答疑区规则">
+          <span>公开讨论 PUBLIC</span>
+          <span>课程相关 ON TOPIC</span>
+          <span>教师回复 INSTRUCTOR REPLIES</span>
+        </div>
+      </div>
+
+      <div class="qa-grid">
+        <div class="qa-board">
+          <div class="qa-board-head">
+            <div>
+              <span class="qa-overline">COURSE QUESTION BOARD</span>
+              <h3>公开答疑区</h3>
+            </div>
+            <span class="qa-status" id="qa-status">准备中</span>
+          </div>
+
+          <!-- 配置 GitHub Discussions / Giscus 后，评论组件会替换此处的设计态。 -->
+          <div class="qa-comment-root" id="qa-comment-root" aria-live="polite">
+            <div class="qa-placeholder">
+              <span class="qa-placeholder-no">Q&amp;A</span>
+              <div>
+                <b>问题、评论与教师答复将在这里公开展示</b>
+                <p>启用后，使用 GitHub 登录即可提问、补充讨论或回复现有问题。</p>
+              </div>
+            </div>
+            <div class="qa-composer" aria-disabled="true">
+              <span>登录后输入问题或补充评论</span>
+              <button type="button" disabled>公开发布 ↗</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="visit-panel" aria-labelledby="visit-title">
+          <div class="visit-head">
+            <span class="qa-overline">VISITOR RECORD</span>
+            <h3 id="visit-title">匿名访问记录</h3>
+          </div>
+          <p class="visit-note">仅展示课程网站的匿名汇总，不公开访客姓名、IP 或个人访问轨迹。</p>
+          <div class="visit-stats" id="visit-stats" aria-live="polite">
+            <div><span>累计访问</span><b data-visit-total>—</b></div>
+            <div><span>独立访客</span><b data-visit-unique>—</b></div>
+            <div><span>最近更新</span><b data-visit-updated>—</b></div>
+          </div>
+          <p class="visit-state" id="visit-state"><i></i>统计服务待接入</p>
+        </aside>
+      </div>
     </div>
   </section>
 
