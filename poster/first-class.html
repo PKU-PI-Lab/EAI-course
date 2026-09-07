@@ -161,7 +161,7 @@
   /* ── 页脚：扫码 ── */
   .foot {
     margin-top: 4.5mm;
-    display: grid; grid-template-columns: 1fr 37mm; gap: 6mm; align-items: end;
+    display: grid; grid-template-columns: 1fr 74mm; gap: 4mm; align-items: end;
     border-top: 1px solid var(--line); padding-top: 3.6mm;
   }
   .foot-meta dl { display: grid; grid-template-columns: 22mm 1fr; row-gap: 1.5mm; }
@@ -176,14 +176,21 @@
     font-family: var(--mono); font-size: 7pt; font-weight: 400;
     letter-spacing: .04em; color: var(--accent);
   }
-  .qr { text-align: center; }
+  .qr-codes {
+    display: flex; justify-content: flex-end; align-items: flex-start; gap: 3.5mm;
+  }
+  .qr { width: 35mm; text-align: center; }
   .qr img {
-    width: 37mm; height: 37mm; display: block;
+    width: 35mm; height: 35mm; display: block;
     border: 1px solid var(--line); padding: 1.2mm; background: #fff;
   }
   .qr span {
     display: block; margin-top: 1.4mm;
-    font-family: var(--mono); font-size: 5.6pt; letter-spacing: .12em; color: var(--ink-soft);
+    font-size: 6.6pt; font-weight: 700; line-height: 1.25; color: var(--ink);
+  }
+  .qr small {
+    display: block; margin-top: .5mm;
+    font-family: var(--mono); font-size: 4.8pt; line-height: 1.2; color: var(--ink-soft);
   }
 </style>
 </head>
@@ -258,13 +265,20 @@
         <dt>考核 GRADING</dt><dd>过程性考核 + 项目成果，不设笔试</dd>
       </dl>
       <div class="foot-cta">
-        扫码查看课程官网
-        <em>pku-pi-lab.github.io/EAI-course</em>
+        扫码获取课程信息
+        <em>COURSE WEBSITE · AUDIT GROUP</em>
       </div>
     </div>
-    <div class="qr">
-      <img src="qr-course.png" alt="课程官网二维码" />
-      <span>SCAN ME</span>
+    <div class="qr-codes">
+      <div class="qr">
+        <img src="qr-course.png" alt="课程官网二维码" />
+        <span>课程官网</span>
+      </div>
+      <div class="qr">
+        <img src="qr-audit-group.png" alt="课程旁听微信群二维码" />
+        <span>课程旁听微信群</span>
+        <small>9 月 14 日前有效</small>
+      </div>
     </div>
   </div>
 

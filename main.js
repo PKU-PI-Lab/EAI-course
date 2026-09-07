@@ -2,27 +2,27 @@
    学期：2026-09-08 ~ 2026-12-22，每周二 15:00–18:00，10-06 国庆停课 */
 
 const SESSIONS = [
-  { w: "W01", date: "2026-09-08", zh: "课程介绍 · 业界嘉宾分享", en: "Course Introduction + Guest Talk",
+  { w: "W01", date: "2026-09-08", zh: "课程介绍与分组 · 业界嘉宾分享", en: "Course Introduction & Team Formation + Guest Talk",
     tag: "讲授+嘉宾 LEC+GUEST", type: "lecture", types: ["lecture", "guest"], place: "三教 501",
     agenda: [
       { t: "15:10 – 16:00", who: "庞智博", what: "课程介绍" },
       { t: "16:10 – 17:00", who: "池晓威", what: "行业经验分享" },
     ] },
-  { w: "W02", date: "2026-09-15", zh: "任务仿真 I（占位）", en: "Task Simulation I", tag: "讲授+实验 LEC+LAB", type: "lecture" },
-  { w: "W03", date: "2026-09-22", zh: "任务仿真 II（占位）", en: "Task Simulation II", tag: "讲授+实验 LEC+LAB", type: "lecture" },
-  { w: "W04", date: "2026-09-29", zh: "业界嘉宾报告（待定）", en: "Guest Lecture TBA", tag: "嘉宾 GUEST", type: "guest" },
+  { w: "W02", date: "2026-09-15", zh: "任务仿真 I · 业界嘉宾汇报", en: "Task Simulation I + Guest Talk", tag: "讲授+嘉宾 LEC+GUEST", type: "lecture", types: ["lecture", "guest"] },
+  { w: "W03", date: "2026-09-22", zh: "任务仿真 II", en: "Task Simulation II", tag: "讲授 LECTURE", type: "lecture" },
+  { w: "W04", date: "2026-09-29", zh: "数据工程 I · 业界嘉宾汇报", en: "Data Engineering I + Guest Talk", tag: "讲授+嘉宾 LEC+GUEST", type: "lecture", types: ["lecture", "guest"] },
   { w: null, date: "2026-10-06", zh: "国庆假期 · 停课", en: "National Day Holiday", tag: "HOLIDAY", type: "holiday" },
-  { w: "W05", date: "2026-10-13", zh: "数据工程 I（占位）", en: "Data Engineering I", tag: "讲授+实验 LEC+LAB", type: "lecture" },
-  { w: "W06", date: "2026-10-20", zh: "数据工程 II（占位）", en: "Data Engineering II", tag: "讲授+实验 LEC+LAB", type: "lecture" },
-  { w: "W07", date: "2026-10-27", zh: "业界嘉宾报告（待定）", en: "Guest Lecture TBA", tag: "嘉宾 GUEST", type: "guest" },
-  { w: "W08", date: "2026-11-03", zh: "期中项目汇报", en: "Mid-term Review", tag: "汇报 REVIEW", type: "review" },
-  { w: "W09", date: "2026-11-10", zh: "模型训练 I（占位）", en: "Model Training I", tag: "讲授+实验 LEC+LAB", type: "lecture" },
-  { w: "W10", date: "2026-11-17", zh: "模型训练 II（占位）", en: "Model Training II", tag: "讲授+实验 LEC+LAB", type: "lecture" },
-  { w: "W11", date: "2026-11-24", zh: "业界嘉宾报告（待定）", en: "Guest Lecture TBA", tag: "嘉宾 GUEST", type: "guest" },
-  { w: "W12", date: "2026-12-01", zh: "推理部署 I（占位）", en: "Inference & Deployment I", tag: "讲授+实验 LEC+LAB", type: "lecture" },
-  { w: "W13", date: "2026-12-08", zh: "推理部署 II（占位）", en: "Inference & Deployment II", tag: "讲授+实验 LEC+LAB", type: "lecture" },
-  { w: "W14", date: "2026-12-15", zh: "期末项目汇报 I（占位）", en: "Final Review I", tag: "汇报 REVIEW", type: "review" },
-  { w: "W15", date: "2026-12-22", zh: "期末项目汇报 II · 结课（占位）", en: "Final Review II", tag: "汇报 REVIEW", type: "review" },
+  { w: "W05", date: "2026-10-13", zh: "数据工程 II", en: "Data Engineering II", tag: "讲授 LECTURE", type: "lecture" },
+  { w: "W06", date: "2026-10-20", zh: "中期项目汇报 · 业界专家评审答疑", en: "Mid-term Review + Expert Panel", tag: "汇报+评审 REVIEW+PANEL", type: "review", types: ["review", "guest"] },
+  { w: "W07", date: "2026-10-27", zh: "模型训练 I · 业界嘉宾汇报", en: "Model Training I + Guest Talk", tag: "讲授+嘉宾 LEC+GUEST", type: "lecture", types: ["lecture", "guest"] },
+  { w: "W08", date: "2026-11-03", zh: "模型训练 II", en: "Model Training II", tag: "讲授 LECTURE", type: "lecture" },
+  { w: "W09", date: "2026-11-10", zh: "模型训练 III", en: "Model Training III", tag: "讲授 LECTURE", type: "lecture" },
+  { w: "W10", date: "2026-11-17", zh: "真机部署 I · 业界嘉宾汇报", en: "Real-Robot Deployment I + Guest Talk", tag: "讲授+嘉宾 LEC+GUEST", type: "lecture", types: ["lecture", "guest"] },
+  { w: "W11", date: "2026-11-24", zh: "真机部署 II", en: "Real-Robot Deployment II", tag: "讲授 LECTURE", type: "lecture" },
+  { w: "W12", date: "2026-12-01", zh: "真机部署 III", en: "Real-Robot Deployment III", tag: "讲授 LECTURE", type: "lecture" },
+  { w: "W13", date: "2026-12-08", zh: "真机部署 IV", en: "Real-Robot Deployment IV", tag: "讲授 LECTURE", type: "lecture" },
+  { w: "W14", date: "2026-12-15", zh: "真机部署 V", en: "Real-Robot Deployment V", tag: "讲授 LECTURE", type: "lecture" },
+  { w: "W15", date: "2026-12-22", zh: "期末总结汇报 · Final", en: "Final Review + Expert Panel", tag: "汇报+评审 REVIEW+PANEL", type: "review", types: ["review", "guest"] },
 ];
 
 const MONTHS = [
@@ -97,11 +97,12 @@ function renderSessionList() {
     row.className = "session-row";
     row.dataset.date = s.date;
     row.dataset.type = s.type;
+    const sessionTypes = s.types || [s.type];
     if (s.type === "holiday") row.classList.add("holiday-row");
-    if (s.type === "guest") row.classList.add("tag-guest");
-    if (s.type === "review") row.classList.add("tag-review");
+    if (sessionTypes.includes("guest")) row.classList.add("tag-guest");
+    if (sessionTypes.includes("review")) row.classList.add("tag-review");
 
-    row.dataset.types = (s.types || [s.type]).join(",");
+    row.dataset.types = sessionTypes.join(",");
 
     const dateStr = s.date.slice(5).replace("-", ".") + " TUE";
     row.innerHTML = `
