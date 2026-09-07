@@ -113,7 +113,10 @@
     display: flex; flex-direction: column;
     min-height: 0; overflow: hidden;
   }
-  .sp-photo { flex: 1; min-height: 0; overflow: hidden; border-bottom: 1.2pt solid var(--ink); }
+  .sp-photo {
+    flex: 1; min-height: 52mm; overflow: hidden;
+    border-bottom: 1.2pt solid var(--ink);
+  }
   .sp-photo img {
     width: 100%; height: 100%;
     object-fit: cover; object-position: center 22%;
@@ -128,13 +131,24 @@
     margin-top: 1.6mm;
     font-size: 20pt; font-weight: 800; letter-spacing: .01em; line-height: 1.1;
   }
+  .sp-flag {
+    margin-top: 2mm;
+    display: inline-block;
+    background: var(--ink); color: var(--paper);
+    font-size: 8.5pt; font-weight: 700; letter-spacing: .02em;
+    padding: 1.3mm 2.6mm;
+  }
   .sp-role {
-    margin-top: 1.8mm;
-    font-family: var(--mono); font-size: 6.4pt; letter-spacing: .05em;
-    color: var(--ink-soft); line-height: 1.6;
+    margin-top: 1.6mm;
+    font-family: var(--mono); font-size: 6.2pt; letter-spacing: .05em;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+  .sp-bio {
+    margin-top: 2.4mm;
+    font-size: 7.2pt; line-height: 1.62; color: var(--ink);
   }
   .sp-topic {
-    margin-top: 2.6mm; padding-top: 2.4mm;
+    margin-top: 2.8mm; padding-top: 2.4mm;
     border-top: 1px solid var(--line-soft);
     font-size: 11.5pt; font-weight: 700;
   }
@@ -216,7 +230,9 @@
       <div class="sp-body">
         <div class="sp-slot">15:10 – 16:00</div>
         <div class="sp-name">庞智博</div>
-        <div class="sp-role">北京大学长聘教授<br />先进制造与机器人学院 · PI LAB</div>
+        <div class="sp-flag">北京大学 长聘教授</div>
+        <div class="sp-role">先进制造与机器人学院 · PI LAB 物理智能实验室</div>
+        <p class="sp-bio">前 ABB 瑞典研究院资深主任科学家、KTH 双聘教授，2025 年全职回国加盟北大。主持科研项目经费逾 1000 万欧元，成果落地于 ABB 移动 YuMi 机器人；发表国际期刊论文 200 余篇，持 25 项美欧日发明专利。</p>
         <div class="sp-topic">课程介绍<em>COURSE INTRODUCTION</em></div>
       </div>
     </div>
@@ -226,7 +242,9 @@
       <div class="sp-body">
         <div class="sp-slot">16:10 – 17:00</div>
         <div class="sp-name">池晓威</div>
-        <div class="sp-role">MUKA 莫刻机器人 创始人<br />香港科技大学 博士研究生</div>
+        <div class="sp-flag">MUKA 莫刻机器人 创始人</div>
+        <div class="sp-role">香港科技大学 博士研究生 · FOUNDER, MUKA ROBOTICS</div>
+        <p class="sp-bio">具身智能创业者。香港科技大学博士生，研究机器人多模态生成模型与世界模型，论文见于 CVPR、ICML、AAAI、ICRA，曾就职于腾讯 Robotics X 实验室。本次带来一线创业与行业实践的第一手观察。</p>
         <div class="sp-topic">行业经验分享<em>GUEST TALK · FROM THE INDUSTRY</em></div>
       </div>
     </div>
