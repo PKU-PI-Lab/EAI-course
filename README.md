@@ -42,6 +42,7 @@ git push -u origin main
 | `showcase.css` | 01 课程现场、嘉宾 logo／合作块、教师研究方向、各处交互态 |
 | `main.js` | 课表数据（`SESSIONS`）+ 日历、课次列表、类型筛选与联动 |
 | `showcase.js` | 01 的演示播放器、任务矩阵、泛化对比 |
+| `materials.js` | 课程资料 Repo 的数据与渲染（独立页 repo.html）|
 | `interactions.js` | 首屏四段流水线、成绩构成、知识基础、教师履历展开、滚动入场、阅读进度、导航高亮、数字滚动 |
 | `assets/posters/*.jpg` | 每段视频的封面帧（长边 1280，约 55 KB/张） |
 

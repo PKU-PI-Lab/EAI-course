@@ -142,6 +142,9 @@ function initScrollUI() {
     .filter(t => t.el);
   const topbar = document.querySelector(".topbar");
 
+  /* 子页面（如 repo.html）导航指向首页锚点，这里没有可跟踪的目标 */
+  const spy = targets.length > 0;
+
   let raf = 0;
   const onScroll = () => {
     if (raf) return;
@@ -154,6 +157,7 @@ function initScrollUI() {
         bar.style.transform = `scaleX(${h > 0 ? Math.min(1, y / h) : 0})`;
       }
 
+      if (!spy) return;
       const probe = (topbar ? topbar.getBoundingClientRect().bottom : 0) + 8;
       let cur = null;
       targets.forEach(t => {
