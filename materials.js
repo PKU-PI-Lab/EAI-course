@@ -20,9 +20,8 @@
    ──────────────────────────────────────────────────────────── */
 
 const MATERIALS = [
-  // 例：
-  // { unit: "intro", w: "L1", date: "2026-09-08", title: "课程介绍", type: "slides",
-  //   file: "materials/L01-课程介绍.pdf" },
+  { unit: "intro", w: "L1", date: "2026-09-08", title: "课程概述", type: "slides",
+    file: "materials/L1-课程概述.pdf", note: "课程介绍、授课团队、课程安排与考核方式" },
 ];
 
 const UNITS = [

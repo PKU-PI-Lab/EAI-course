@@ -17,3 +17,7 @@ images/往期课程现场.png
 # Word 临时文件 / 本地开发配置
 ~$*
 .claude/
+
+# 未脱敏的原始资料，只留本地
+_private/
+output/
