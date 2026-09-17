@@ -22,6 +22,8 @@
 const MATERIALS = [
   { unit: "intro", w: "L1", date: "2026-09-08", title: "课程概述", type: "slides",
     file: "materials/L1-课程概述.pdf", note: "课程介绍、授课团队、课程安排与考核方式" },
+  { unit: "sim", w: "L2", date: "2026-09-15", title: "具身智能仿真", type: "slides",
+    file: "materials/L2-具身智能仿真.pdf", note: "仿真基础、常见平台与基准、数据生成及 MuJoCo 仿真实验" },
 ];
 
 const UNITS = [
