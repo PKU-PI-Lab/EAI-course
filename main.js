@@ -17,7 +17,10 @@ const SESSIONS = [
   { w: "L7", date: "2026-10-27", zh: "模型训练 I · 理论课+业界嘉宾分享", en: "Model Training I · Theory + Guest Talk", tag: "理论课+嘉宾 THEORY+GUEST", type: "lecture", types: ["lecture", "guest"] },
   { w: "L8", date: "2026-11-03", zh: "模型训练 II · 实践课", en: "Model Training II · Practice", tag: "实践课 PRACTICE", type: "lecture" },
   { w: "L9", date: "2026-11-10", zh: "模型训练 III · 实践课", en: "Model Training III · Practice", tag: "实践课 PRACTICE", type: "lecture" },
-  { w: "L10", date: "2026-11-17", zh: "推理部署 I · 理论课+业界嘉宾分享", en: "Inference & Deployment I · Theory + Guest Talk", tag: "理论课+嘉宾 THEORY+GUEST", type: "lecture", types: ["lecture", "guest"] },
+  { w: "L10", date: "2026-11-17", zh: "推理部署 I · 理论课+业界嘉宾分享", en: "Inference & Deployment I · Theory + Guest Talk", tag: "理论课+嘉宾 THEORY+GUEST", type: "lecture", types: ["lecture", "guest"], place: "三教 501",
+    agenda: [
+      { t: "嘉宾分享", who: "桐伦 博士 · 摩尔线程", what: "VLA 真机落地，从 20% 到 100%" },
+    ] },
   { w: "L11", date: "2026-11-24", zh: "推理部署 II · 实践课", en: "Inference & Deployment II · Practice", tag: "实践课 PRACTICE", type: "lecture" },
   { w: "L12", date: "2026-12-01", zh: "推理部署 III · 实践课", en: "Inference & Deployment III · Practice", tag: "实践课 PRACTICE", type: "lecture" },
   { w: "L13", date: "2026-12-08", zh: "推理部署 IV · 实践课", en: "Inference & Deployment IV · Practice", tag: "实践课 PRACTICE", type: "lecture" },
